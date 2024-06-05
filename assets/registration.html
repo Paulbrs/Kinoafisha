@@ -1,0 +1,87 @@
+<title>Регистрация</title>
+<body class="blat">
+<h1 class="registration">Registration</h1>
+<div class="login-form-container">
+  <div class="login-form-inputs">
+    <input type="text" placeholder="Username..." id="username">
+    <input type="password" placeholder="Password..." id="password">
+    <button class="button-registration" id="login-action">Log in</button>
+  </div>
+</div>
+</body>
+
+
+<script>
+  const username = document.getElementById("username");
+  const password = document.getElementById("password");
+
+  document.getElementById("login-action").onclick = function () {
+    let hasError = false;
+
+    [username, password].forEach(item => {
+      if (!item.value) {
+        item.style.borderColor = "red";
+        hasError = true;
+      } else {
+        item.style.borderColor = "";
+      }
+    });
+
+    if (!hasError) {
+      [username, password].forEach(item => {
+        item.value = "";
+      });
+      alert("You have successfully logged in");
+    }
+  };
+</script>
+
+<style>
+  .blat {
+    color: #363636;
+  }
+
+  body {
+    margin-top: 60px;
+    background-color: #363636;
+  }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 300 34px "Ubuntu", sans-serif;
+    color: #fff;
+  }
+
+  .login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .login-form-inputs {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-form-inputs input[type="text"],
+  .login-form-inputs input[type="password"],
+  .login-form-inputs button {
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #000;
+  }
+
+  .login-form-inputs .button-registration {
+    width: 300px;
+    padding: 10px;
+    margin: 5px;
+    background-color: #8E8E8E;
+  }
+
+</style>
